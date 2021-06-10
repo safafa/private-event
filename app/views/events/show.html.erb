@@ -4,3 +4,10 @@
 <p> Event date : <%= @event.date%> </p>
 <p> Event location : <%= @event.location%> </p>
 <p> Event creator : <%= @event.creator.username%> </p>
+<h2>List of Attendees</h2> : <%= @event.attendees%>
+<ul>
+<% @event.attendees.each do |attendee|%>
+<li> <%= attendee.username%></li>
+<%end%>
+</ul>
+</div>
