@@ -4,10 +4,13 @@
 <p> Event date : <%= @event.date%> </p>
 <p> Event location : <%= @event.location%> </p>
 <p> Event creator : <%= @event.creator.username%> </p>
-<h2>List of Attendees</h2> : <%= @event.attendees%>
+<h2>List of Attendees</h2>
+<%if current_user %>
+            <%= link_to "Attend", event_event_attendees_path(@event), method: :post  %>
+<%end %>
 <ul>
 <% @event.attendees.each do |attendee|%>
-<li> <%= attendee.username%></li>
+<li> <%= link_to attendee.username, user_path(attendee.id)%></li>
 <%end%>
 </ul>
 </div>
