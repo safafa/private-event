@@ -5,7 +5,7 @@
 <p> Event location : <%= @event.location%> </p>
 <p> Event creator : <%= @event.creator.username%> </p>
 <h2>List of Attendees</h2>
-<%if current_user %>
+<%if current_user and  upcoming?(@event)  %>
             <%= link_to "Attend", event_event_attendees_path(@event), method: :post  %>
 <%end %>
 <ul>
